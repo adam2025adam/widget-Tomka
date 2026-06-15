@@ -4,7 +4,10 @@
   // ── CSS ─────────────────────────────────────────────────────────────────────
   var css = [
     '#asw*,#asw *::before,#asw *::after{box-sizing:border-box;margin:0;padding:0}',
-    '#asw{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;display:inline-block}',
+
+    '#asw{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;display:inline-block;text-align:left;direction:ltr}',
+    '#asw .widget{direction:ltr}',
+    '#asw .widget-header,#asw .question-text,#asw .options-list,#asw .option-btn,#asw .input-label,#asw .input-field,#asw .result-box,#asw .nav-footer{text-align:left;direction:ltr}',
 
     '#asw .widget{width:380px;min-height:540px;background:rgb(255,230,155);border-radius:20px;box-shadow:0 8px 40px rgba(0,0,0,.12),0 2px 8px rgba(0,0,0,.06);overflow:hidden;display:flex;flex-direction:column;position:relative}',
 
