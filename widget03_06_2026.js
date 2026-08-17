@@ -6,11 +6,15 @@
     '#asw*,#asw *::before,#asw *::after{box-sizing:border-box;margin:0;padding:0}',
     '#asw{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;display:inline-block}',
 
-    '#asw .widget{width:380px;min-height:540px;background:rgb(255,230,155);border-radius:20px;box-shadow:0 8px 40px rgba(0,0,0,.12),0 2px 8px rgba(0,0,0,.06);overflow:hidden;display:flex;flex-direction:column;position:relative}',
+    '#asw .widget{width:460px;min-height:480px;background:rgb(255,230,155);border-radius:20px;box-shadow:0 8px 40px rgba(0,0,0,.12),0 2px 8px rgba(0,0,0,.06);overflow:hidden;display:flex;flex-direction:column;position:relative}',
 
     '#asw .btn-restart{position:absolute;bottom:14px;right:14px;width:34px;height:34px;border-radius:50%;background:rgba(0,0,0,.08);border:none;cursor:pointer;display:none;align-items:center;justify-content:center;transition:background .15s,transform .2s;color:#000}',
     '#asw .btn-restart:hover{background:rgba(0,0,0,.16);transform:rotate(45deg)}',
     '#asw .btn-restart svg{width:16px;height:16px;flex-shrink:0}',
+
+    '#asw .btn-close{position:absolute;top:14px;right:14px;width:28px;height:28px;border-radius:50%;background:rgba(0,0,0,.08);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .15s,transform .2s;color:#000;z-index:2}',
+    '#asw .btn-close:hover{background:rgba(0,0,0,.16);transform:scale(1.08)}',
+    '#asw .btn-close svg{width:13px;height:13px;flex-shrink:0}',
 
     '#asw .widget-header{background:rgb(255,204,51);padding:20px 24px 18px;color:#000;flex-shrink:0}',
     '#asw .widget-header h1{font-size:16px;font-weight:700;letter-spacing:.2px}',
@@ -64,6 +68,12 @@
   container.id = 'asw';
   container.innerHTML = [
     '<div class="widget">',
+      '<button class="btn-close" title="Zamknij">',
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">',
+          '<path d="M6 6l12 12"/>',
+          '<path d="M18 6 6 18"/>',
+        '</svg>',
+      '</button>',
       '<div class="widget-header">',
         '<h1>Asystent budowlany</h1>',
         '<p>Dobierz właściwy wniosek budowlany</p>',
@@ -89,6 +99,9 @@
   // ── REFERENCJE DO ELEMENTÓW ──────────────────────────────────────────────────
   var app        = container.querySelector('.widget-body');
   var restartBtn = container.querySelector('.btn-restart');
+  var closeBtn   = container.querySelector('.btn-close');
+
+  closeBtn.onclick = function () { container.style.display = 'none'; };
 
   // ── WYNIKI (teksty z index_prompt_pomocnik_3_fixed_v2) ───────────────────────
   var RESULTS = {
